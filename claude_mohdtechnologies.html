@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MOHD Technologies | More Healthy Dynasty</title>
+  <meta name="description" content="MOHD Technologies – EdTech, AgriTech, and FinTech solutions rooted in ethics and a vision for a healthier dynasty. Based in Dar es Salaam and Zanzibar, Tanzania." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-deep:   #1B4332;
+      --green-mid:    #2D6A4F;
+      --green-light:  #52B788;
+      --green-pale:   #D8F3DC;
+      --gold:         #C9973A;
+      --gold-light:   #F0C97A;
+      --cream:        #FAF8F3;
+      --cream-dark:   #F0EDE5;
+      --white:        #FFFFFF;
+      --text-dark:    #1A1A1A;
+      --text-mid:     #3D3D3D;
+      --text-muted:   #767676;
+      --border:       rgba(27, 67, 50, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 5%;
+      background: rgba(250, 248, 243, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 4px 32px rgba(27,67,50,0.10); }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 40px; height: 40px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 0 2px var(--green-deep);
+      flex-shrink: 0;
+    }
+    .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 1.25rem; color: var(--green-deep); letter-spacing: 0.01em; }
+    .nav-logo-text span { color: var(--gold); }
+
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-size: 0.88rem; font-weight: 500; color: var(--text-mid); letter-spacing: 0.02em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--green-deep); }
+
+    .nav-cta {
+      background: var(--green-deep);
+      color: var(--white) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--green-mid) !important; color: var(--white) !important; }
+
+    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--green-deep); border-radius: 2px; transition: all 0.3s; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 5% 5rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, #1B4332 0%, #2D6A4F 50%, #1B4332 100%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-gold-blob {
+      position: absolute;
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(201,151,58,0.18) 0%, transparent 70%);
+      top: -80px; right: -80px;
+      pointer-events: none;
+    }
+    .hero-gold-blob-2 {
+      position: absolute;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(82,183,136,0.15) 0%, transparent 70%);
+      bottom: 60px; left: 5%;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 760px;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(201,151,58,0.18);
+      color: var(--gold-light);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      border: 1px solid rgba(201,151,58,0.35);
+      margin-bottom: 1.8rem;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--gold-light);
+      border-radius: 50%;
+    }
+
+    .hero-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s 0.15s ease both;
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+      max-width: 580px;
+      margin-bottom: 2.8rem;
+      font-weight: 300;
+      animation: fadeUp 0.8s 0.28s ease both;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-bottom: 2.8rem;
+      animation: fadeUp 0.8s 0.38s ease both;
+    }
+    .hero-pill {
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.03em;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      animation: fadeUp 0.8s 0.46s ease both;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 8px;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      border: none; cursor: pointer;
+    }
+    .btn-primary:hover { background: #b8862e; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,151,58,0.4); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.92rem;
+      padding: 0.85rem 1.8rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.35);
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6); }
+
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: rgba(255,255,255,0.45);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: fadeIn 1.5s 1s ease both;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+      animation: scrollBounce 1.8s infinite;
+    }
+
+    /* ── SECTION SCAFFOLDING ── */
+    section { padding: 6rem 5%; }
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green-mid);
+      background: var(--green-pale);
+      padding: 0.3rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      color: var(--green-deep);
+      line-height: 1.15;
+      margin-bottom: 1.1rem;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-lead {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      line-height: 1.85;
+      max-width: 620px;
+      font-weight: 300;
+    }
+    .centered { text-align: center; }
+    .centered .section-lead { margin: 0 auto; }
+
+    /* ── ABOUT STRIP ── */
+    #about {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card {
+      background: var(--green-deep);
+      border-radius: 20px;
+      padding: 3rem;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(201,151,58,0.25) 0%, transparent 70%);
+    }
+    .about-monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      position: absolute;
+      bottom: 1rem; right: 1.5rem;
+      letter-spacing: -0.02em;
+      pointer-events: none;
+      user-select: none;
+    }
+    .about-card-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+    }
+    .about-card-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+    }
+    .about-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .about-stat {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 1.2rem;
+      text-align: center;
+    }
+    .about-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .about-stat-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .about-text .section-tag { margin-bottom: 1rem; }
+    .about-intro-list { margin-top: 1.5rem; list-style: none; }
+    .about-intro-list li {
+      display: flex;
+      gap: 0.85rem;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      align-items: flex-start;
+    }
+    .about-intro-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 7px; height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin-top: 0.45rem;
+    }
+
+    /* ── PILLARS ── */
+    #pillars { background: var(--cream); }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-top: 3.5rem;
+    }
+    .pillar-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 2.5rem 2rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .pillar-card:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(27,67,50,0.12); }
+    .pillar-card:hover::after { opacity: 1; }
+
+    .pillar-card.edtech::after  { background: linear-gradient(90deg, #1B4332, #52B788); }
+    .pillar-card.agritech::after { background: linear-gradient(90deg, #52B788, #C9973A); }
+    .pillar-card.fintech::after  { background: linear-gradient(90deg, #C9973A, #1B4332); }
+
+    .pillar-icon {
+      width: 58px; height: 58px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .pillar-icon svg { width: 30px; height: 30px; }
+
+    .pillar-card.edtech .pillar-icon  { background: #D8F3DC; }
+    .pillar-card.agritech .pillar-icon { background: #FEF9EE; }
+    .pillar-card.fintech .pillar-icon  { background: #FFF8EE; }
+
+    .pillar-badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.7rem;
+      border-radius: 100px;
+      margin-bottom: 0.7rem;
+    }
+    .pillar-card.edtech .pillar-badge  { background: var(--green-pale); color: var(--green-deep); }
+    .pillar-card.agritech .pillar-badge { background: #FEF9EE; color: #7D5A0B; }
+    .pillar-card.fintech .pillar-badge  { background: #FFF3E0; color: #8B5E0A; }
+
+    .pillar-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+    .pillar-tagline {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+    }
+    .pillar-desc {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .pillar-features { list-style: none; }
+    .pillar-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.88rem;
+      color: var(--text-mid);
+      padding: 0.3rem 0;
+    }
+    .pillar-features li::before {
+      content: '→';
+      color: var(--green-light);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    /* ── ECOSYSTEM ── */
+    #ecosystem {
+      background: var(--green-deep);
+      color: var(--white);
+    }
+    #ecosystem .section-tag { background: rgba(201,151,58,0.2); color: var(--gold-light); }
+    #ecosystem .section-title { color: var(--white); }
+    #ecosystem .section-title em { color: var(--gold-light); }
+    #ecosystem .section-lead { color: rgba(255,255,255,0.7); }
+
+    .cycle-wrapper {
+      margin-top: 4rem;
+      position: relative;
+    }
+
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 1.5rem 2rem;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cycle-node {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .cycle-node:hover {
+      background: rgba(255,255,255,0.11);
+      border-color: rgba(201,151,58,0.5);
+      transform: scale(1.02);
+    }
+    .cycle-node-icon {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+    .cycle-node-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .cycle-node-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .cycle-center {
+      grid-column: 2;
+      grid-row: 1 / 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cycle-center-badge {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold) 0%, #E8B84B 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      box-shadow: 0 0 0 16px rgba(201,151,58,0.12), 0 0 0 32px rgba(201,151,58,0.06);
+    }
+    .cycle-center-badge span:first-child {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .cycle-center-badge span:last-child {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .cycle-arrow {
+      text-align: center;
+      color: rgba(201,151,58,0.7);
+      font-size: 1.5rem;
+    }
+
+    .ecosystem-insights {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 3.5rem;
+    }
+    .insight-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.4rem;
+    }
+    .insight-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+    .insight-card strong {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── ETHICS ── */
+    #ethics { background: var(--white); }
+    .ethics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+      margin-top: 3rem;
+    }
+    .ethics-card {
+      border-radius: 14px;
+      padding: 1.6rem 1.3rem;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      transition: all 0.25s;
+    }
+    .ethics-card:hover { border-color: var(--green-light); transform: translateY(-3px); }
+    .ethics-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--green-pale);
+      line-height: 1;
+      margin-bottom: 0.6rem;
+    }
+    .ethics-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .ethics-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── DIRECTOR ── */
+    #director {
+      background: var(--cream-dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .director-block .section-title { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    .director-name-card {
+      margin-top: 2rem;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+    .director-avatar {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--green-deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+    .director-full-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--green-deep);
+      margin-bottom: 0.2rem;
+    }
+    .director-role {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+    .director-addresses {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .director-addr-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      font-size: 0.87rem;
+      color: var(--text-mid);
+    }
+    .addr-icon {
+      width: 22px; height: 22px;
+      background: var(--green-pale);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .addr-icon svg { width: 13px; height: 13px; fill: var(--green-deep); }
+
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .contact-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      color: var(--text-dark);
+      transition: all 0.2s;
+    }
+    .contact-card:hover { border-color: var(--green-light); transform: translateX(4px); }
+    .contact-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 22px; height: 22px; }
+    .contact-icon.phone { background: #E8FFF3; }
+    .contact-icon.phone svg { fill: #128C7E; }
+    .contact-icon.email { background: #FFF5E8; }
+    .contact-icon.email svg { fill: var(--gold); }
+    .contact-label { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.06em; text-transform: uppercase; }
+    .contact-value { font-size: 0.97rem; font-weight: 500; color: var(--green-deep); }
+
+    /* ── SOCIAL MEDIA ── */
+    .social-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.22s;
+      position: relative;
+      overflow: hidden;
+    }
+    .social-btn svg { width: 20px; height: 20px; position: relative; z-index: 1; }
+    .social-btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.22s;
+      border-radius: 10px;
+    }
+    .social-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.18); }
+    .social-btn:hover::before { opacity: 1; }
+
+    /* Hero variant — ghost style on dark bg */
+    .social-bar.hero-social .social-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .social-bar.hero-social .social-btn svg { fill: rgba(255,255,255,0.85); }
+    .social-bar.hero-social .social-btn.fb::before  { background: #1877F2; }
+    .social-bar.hero-social .social-btn.ig::before  { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    .social-bar.hero-social .social-btn.yt::before  { background: #FF0000; }
+    .social-bar.hero-social .social-btn.tt::before  { background: #010101; }
+    .social-bar.hero-social .social-btn.li::before  { background: #0A66C2; }
+    .social-bar.hero-social .social-btn:hover svg   { fill: #fff; }
+
+    /* Contact section variant — colored icons on white */
+    .social-bar.contact-social .social-btn {
+      width: auto;
+      padding: 0 1.1rem;
+      gap: 0.55rem;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      font-family: 'Outfit', sans-serif;
+    }
+    .social-bar.contact-social .social-btn span { position: relative; z-index: 1; }
+    .social-bar.contact-social .social-btn.fb  { background: #E8F0FE; color: #1877F2; }
+    .social-bar.contact-social .social-btn.ig  { background: #FFF0F5; color: #C13584; }
+    .social-bar.contact-social .social-btn.yt  { background: #FFF0F0; color: #FF0000; }
+    .social-bar.contact-social .social-btn.tt  { background: #F0F0F0; color: #010101; }
+    .social-bar.contact-social .social-btn.li  { background: #E8F4FD; color: #0A66C2; }
+    .social-bar.contact-social .social-btn.fb svg { fill: #1877F2; }
+    .social-bar.contact-social .social-btn.ig svg { fill: #C13584; }
+    .social-bar.contact-social .social-btn.yt svg { fill: #FF0000; }
+    .social-bar.contact-social .social-btn.tt svg { fill: #010101; }
+    .social-bar.contact-social .social-btn.li svg { fill: #0A66C2; }
+    .social-bar.contact-social .social-btn.fb::before { background: #1877F2; }
+    .social-bar.contact-social .social-btn.ig::before { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    .social-bar.contact-social .social-btn.yt::before { background: #FF0000; }
+    .social-bar.contact-social .social-btn.tt::before { background: #010101; }
+    .social-bar.contact-social .social-btn.li::before { background: #0A66C2; }
+    .social-bar.contact-social .social-btn:hover { color: #fff; }
+    .social-bar.contact-social .social-btn:hover svg { fill: #fff; }
+
+    /* Footer variant — subtle on dark */
+    .social-bar.footer-social .social-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      width: 38px; height: 38px;
+    }
+    .social-bar.footer-social .social-btn svg { fill: rgba(255,255,255,0.55); width: 17px; height: 17px; }
+    .social-bar.footer-social .social-btn.fb::before { background: #1877F2; }
+    .social-bar.footer-social .social-btn.ig::before { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+    .social-bar.footer-social .social-btn.yt::before { background: #FF0000; }
+    .social-bar.footer-social .social-btn.tt::before { background: #333; }
+    .social-bar.footer-social .social-btn.li::before { background: #0A66C2; }
+    .social-bar.footer-social .social-btn:hover svg  { fill: #fff; }
+
+    .social-section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text-dark);
+      color: rgba(255,255,255,0.55);
+      padding: 3rem 5%;
+    }
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand {}
+    .footer-brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .footer-brand-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .footer-motto {
+      margin-top: 0.7rem;
+      font-style: italic;
+      font-size: 0.87rem;
+      color: var(--gold-light);
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .footer-links-col h4 {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 0.9rem;
+    }
+    .footer-links-col a {
+      display: block;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 0.88rem;
+      padding: 0.25rem 0;
+      transition: color 0.2s;
+    }
+    .footer-links-col a:hover { color: var(--white); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      font-size: 0.8rem;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: scaleY(1); opacity: 1; }
+      50% { transform: scaleY(0.6); opacity: 0.4; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      #about, #director { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .ethics-grid { grid-template-columns: repeat(2, 1fr); }
+      .cycle-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .cycle-center { grid-column: 1; grid-row: auto; margin: 1rem 0; }
+      .ecosystem-insights { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 1rem 4%; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 65px; left: 0; right: 0;
+        background: var(--cream);
+        padding: 1.5rem 5%;
+        border-bottom: 1px solid var(--border);
+        gap: 1rem;
+        z-index: 99;
+      }
+      .hamburger { display: flex; }
+      .ethics-grid { grid-template-columns: 1fr; }
+      #about, #director { padding: 4rem 5%; }
+      .about-stat-row { grid-template-columns: repeat(3,1fr); }
+      .hero-actions { flex-direction: column; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAVBAR ── -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-icon">
+        <img class="mohd-logo" alt="MOHD Technologies Logo" style="width:26px;height:26px;object-fit:contain;display:block;" />
+      </div>
+      <div class="nav-logo-text">MOHD <span>Technologies</span></div>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#pillars">Our Pillars</a></li>
+      <li><a href="#ecosystem">Ecosystem</a></li>
+      <li><a href="#ethics">Ethics</a></li>
+      <li><a href="#director">Contact</a></li>
+      <li><a href="#director" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-gold-blob"></div>
+    <div class="hero-gold-blob-2"></div>
+
+    <div class="hero-content">
+      <div style="margin-bottom:1.8rem; animation: fadeUp 0.6s ease both;">
+        <div style="width:72px;height:72px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(201,151,58,0.6), 0 8px 32px rgba(0,0,0,0.25);">
+          <img class="mohd-logo" alt="MOHD Technologies Logo" style="width:46px;height:46px;object-fit:contain;display:block;" />
+        </div>
+      </div>
+      <div class="hero-eyebrow">More Healthy Dynasty</div>
+      <h1 class="hero-headline">
+        Let's build a more<br /><em>healthy dynasty</em><br />together.
+      </h1>
+      <p class="hero-sub">
+        MOHD Technologies is a values-driven startup operating across EdTech, AgriTech, and FinTech — united by one mission: cultivating health, opportunity, and generational prosperity in Tanzania and beyond.
+      </p>
+      <div class="hero-pills">
+        <span class="hero-pill">📚 EdTech</span>
+        <span class="hero-pill">🌿 AgriTech</span>
+        <span class="hero-pill">💳 FinTech</span>
+        <span class="hero-pill">🇹🇿 Dar es Salaam · Zanzibar</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#pillars" class="btn-primary">Explore Our Work ↓</a>
+        <a href="#director" class="btn-ghost">Contact the Director</a>
+      </div>
+
+      <div style="margin-top:2rem; animation: fadeUp 0.8s 0.56s ease both;">
+        <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.38); margin-bottom:0.75rem;">Follow Our Journey</p>
+        <div class="social-bar hero-social">
+          <a href="https://www.facebook.com/mohdtechnologies" target="_blank" rel="noopener" class="social-btn fb" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/mohd_technologies" target="_blank" rel="noopener" class="social-btn ig" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@mohd_technologies" target="_blank" rel="noopener" class="social-btn yt" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@coach_mohd" target="_blank" rel="noopener" class="social-btn tt" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/mohdkhamis/" target="_blank" rel="noopener" class="social-btn li" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="about-visual reveal">
+      <div class="about-card">
+        <p class="about-card-quote">"A dynasty is not built in a day — it is built through consistent, ethical, and purposeful action across every generation."</p>
+        <p class="about-card-name">MOHD ASAA KHAMIS — Director</p>
+        <div class="about-monogram">MOHD</div>
+      </div>
+      <div class="about-stat-row">
+        <div class="about-stat">
+          <div class="about-stat-num">3</div>
+          <div class="about-stat-label">Core Verticals</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">1</div>
+          <div class="about-stat-label">Unified Mission</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">∞</div>
+          <div class="about-stat-label">Generational Impact</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-text reveal">
+      <span class="section-tag">Who We Are</span>
+      <h2 class="section-title">A startup built on<br /><em>purpose and principle</em></h2>
+      <p class="section-lead">
+        MOHD stands for <strong>More Healthy Dynasty</strong>. We are not just a technology company — we are a movement rooted in ethics, community, and the belief that health in all its dimensions — physical, economic, environmental — is a fundamental right.
+      </p>
+      <ul class="about-intro-list">
+        <li>Founded and based in Tanzania, serving Dar es Salaam and Zanzibar</li>
+        <li>Operating across three interconnected and mutually-reinforcing verticals</li>
+        <li>Partnering with individuals, SMEs, NGOs, and institutions to scale impact</li>
+        <li>Driven by ethics-first business practices in every decision and initiative</li>
+        <li>Committed to accessibility, inclusion, and long-term community wellbeing</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── THREE PILLARS ── -->
+  <section id="pillars">
+    <div class="centered reveal">
+      <span class="section-tag">Our Three Pillars</span>
+      <h2 class="section-title">Where we operate,<br />and <em>why it matters</em></h2>
+      <p class="section-lead">
+        Each vertical is purposefully chosen — together they form a complete, self-reinforcing system for building healthier lives, healthier communities, and healthier economies.
+      </p>
+    </div>
+
+    <div class="pillars-grid">
+
+      <!-- EdTech -->
+      <div class="pillar-card edtech reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="#1B4332"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+        </div>
+        <span class="pillar-badge">EdTech</span>
+        <h3 class="pillar-title">Education &<br />Health Training</h3>
+        <p class="pillar-tagline">Expanding Opportunity Through Knowledge</p>
+        <p class="pillar-desc">
+          We make learning about health scalable, personalized, and accessible to all. By partnering with individuals and organizations, we bring health education to communities that need it most — removing barriers and building awareness one training at a time.
+        </p>
+        <ul class="pillar-features">
+          <li>Scalable health training programmes</li>
+          <li>Personalized and community-adapted curricula</li>
+          <li>Multi-organizational and institutional partnerships</li>
+          <li>Digital and in-person facilitation models</li>
+          <li>Train-the-trainer frameworks for wider reach</li>
+        </ul>
+      </div>
+
+      <!-- AgriTech -->
+      <div class="pillar-card agritech reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="#7D5A0B"><path d="M17 8C8 10 5.9 16.17 3.82 21H5.71C6.66 19 8.5 17 11 17C13.5 17 15 18.5 15 18.5V8H17Z"/><path d="M21 3L12 8V20L21 8V3Z" fill="#C9973A"/></svg>
+        </div>
+        <span class="pillar-badge">AgriTech</span>
+        <h3 class="pillar-title">Food Systems &<br />Nutrition Supply</h3>
+        <p class="pillar-tagline">Strengthening What Sustains Us All</p>
+        <p class="pillar-desc">
+          Food is health. We strengthen food production, sustainability, and the supply chain of essential nutritions. Our AgriTech work supports farmers, suppliers, and distributors to build a resilient, health-focused food ecosystem for Tanzania and the region.
+        </p>
+        <ul class="pillar-features">
+          <li>Sustainable food production support</li>
+          <li>Nutritional supply chain resilience</li>
+          <li>Farmer and supplier capacity building</li>
+          <li>Technology-enabled agricultural access</li>
+          <li>Gulf–Tanzania produce trade facilitation</li>
+        </ul>
+      </div>
+
+      <!-- FinTech -->
+      <div class="pillar-card fintech reveal">
+        <div class="pillar-icon">
+          <svg viewBox="0 0 24 24" fill="#8B5E0A"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+        </div>
+        <span class="pillar-badge">FinTech</span>
+        <h3 class="pillar-title">Business Growth &<br />Financial Tools</h3>
+        <p class="pillar-tagline">Building Access, Trust, and Scale</p>
+        <p class="pillar-desc">
+          Financial inclusion is health too. We improve access, trust, and efficiency in the financial system by offering ethical business opportunities — along with the tools and training needed to scale businesses to heights previously unimaginable for many Tanzanians.
+        </p>
+        <ul class="pillar-features">
+          <li>SME and NGO business development support</li>
+          <li>Financial literacy and business training</li>
+          <li>Digital tools for retail and business management</li>
+          <li>Grant writing and fundraising consultancy</li>
+          <li>Islamic finance (Mudarabah, Musharakah, Murabaha) advisory</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ECOSYSTEM ── -->
+  <section id="ecosystem">
+    <div class="centered reveal">
+      <span class="section-tag">The MOHD Ecosystem</span>
+      <h2 class="section-title">Three verticals.<br /><em>One self-reinforcing cycle.</em></h2>
+      <p class="section-lead">
+        The true power of MOHD Technologies lies in how our pillars work together. Each vertical feeds and amplifies the others — creating a flywheel of sustainable, community-led growth.
+      </p>
+    </div>
+
+    <div class="cycle-wrapper reveal">
+      <div class="cycle-grid">
+
+        <!-- Row 1 -->
+        <div class="cycle-node">
+          <span class="cycle-node-icon">📚</span>
+          <div class="cycle-node-label">Health Education</div>
+          <div class="cycle-node-sub">EdTech training creates informed consumers and producers who value nutritious, quality food.</div>
+        </div>
+
+        <div class="cycle-center">
+          <div class="cycle-center-badge">
+            <span>MOHD</span>
+            <span>Ecosystem</span>
+          </div>
+        </div>
+
+        <div class="cycle-node">
+          <span class="cycle-node-icon">🌿</span>
+          <div class="cycle-node-label">Nutrition Supply</div>
+          <div class="cycle-node-sub">AgriTech delivers the healthy food products that the educated market now demands and needs.</div>
+        </div>
+
+        <!-- Row 2 - arrows -->
+        <div class="cycle-arrow">↓</div>
+        <div></div>
+        <div class="cycle-arrow">↓</div>
+
+        <!-- Row 3 -->
+        <div class="cycle-node">
+          <span class="cycle-node-icon">🔄</span>
+          <div class="cycle-node-label">Reinvestment</div>
+          <div class="cycle-node-sub">Business growth funds more training resources, expanding reach and depth of education.</div>
+        </div>
+
+        <div></div>
+
+        <div class="cycle-node">
+          <span class="cycle-node-icon">💳</span>
+          <div class="cycle-node-label">Business Growth</div>
+          <div class="cycle-node-sub">FinTech tools and training convert nutrition demand into sustainable, scalable enterprises.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="ecosystem-insights reveal">
+      <div class="insight-card">
+        <strong>Education → Nutrition</strong>
+        <p>Health training creates informed demand for quality nutrition products, driving uptake of AgriTech produce and building a market of health-aware consumers.</p>
+      </div>
+      <div class="insight-card">
+        <strong>Nutrition → Business</strong>
+        <p>A growing nutrition market opens scalable business opportunities, which FinTech tools and training equip entrepreneurs to capture and grow sustainably.</p>
+      </div>
+      <div class="insight-card">
+        <strong>Business → Education</strong>
+        <p>Profitable, growing businesses generate the resources needed to fund more training programmes — expanding the reach of EdTech and starting the cycle anew.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ETHICS ── -->
+  <section id="ethics">
+    <div class="centered reveal">
+      <span class="section-tag">Our Values</span>
+      <h2 class="section-title">Ethics is not an<br /><em>afterthought — it is our foundation.</em></h2>
+      <p class="section-lead">
+        Every decision, partnership, and offering at MOHD Technologies is filtered through a lens of deep ethical commitment. We believe that sustainable prosperity and principled conduct are not in tension — they are the same thing.
+      </p>
+    </div>
+
+    <div class="ethics-grid">
+      <div class="ethics-card reveal">
+        <div class="ethics-num">01</div>
+        <div class="ethics-title">Health First</div>
+        <div class="ethics-desc">Every product, service, and partnership is evaluated on its contribution to genuine human health and wellbeing. Profit never comes at the cost of people.</div>
+      </div>
+      <div class="ethics-card reveal">
+        <div class="ethics-num">02</div>
+        <div class="ethics-title">Transparency</div>
+        <div class="ethics-desc">We operate with full honesty in our dealings, pricing, partnerships, and impact reporting. Trust is our most valuable asset and we protect it fiercely.</div>
+      </div>
+      <div class="ethics-card reveal">
+        <div class="ethics-num">03</div>
+        <div class="ethics-title">Accessibility</div>
+        <div class="ethics-desc">We actively dismantle barriers to health knowledge, nutrition, and business opportunity — especially for underserved and marginalized communities.</div>
+      </div>
+      <div class="ethics-card reveal">
+        <div class="ethics-num">04</div>
+        <div class="ethics-title">Sustainability</div>
+        <div class="ethics-desc">Our decisions account for long-term impact on communities, environment, and economies — not just quarterly returns. We build for generations, not quarters.</div>
+      </div>
+      <div class="ethics-card reveal">
+        <div class="ethics-num">05</div>
+        <div class="ethics-title">Partnership</div>
+        <div class="ethics-desc">We believe no organization succeeds alone. We pursue genuine, mutual-benefit partnerships with individuals, SMEs, NGOs, and institutions at every level.</div>
+      </div>
+      <div class="ethics-card reveal">
+        <div class="ethics-num">06</div>
+        <div class="ethics-title">Islamic Finance</div>
+        <div class="ethics-desc">Where financial structures are involved, we apply principles of ethical Islamic finance — Mudarabah, Musharakah, Murabaha — ensuring fairness and shared risk.</div>
+      </div>
+      <div class="ethics-card reveal">
+        <div class="ethics-num">07</div>
+        <div class="ethics-title">Empowerment</div>
+        <div class="ethics-desc">Our goal is never dependency — always capability. We train, equip, and mentor so that individuals and communities build lasting self-sufficiency.</div>
+      </div>
+      <div class="ethics-card reveal">
+        <div class="ethics-num">08</div>
+        <div class="ethics-title">Legacy</div>
+        <div class="ethics-desc">We are building a dynasty — for our communities, our families, and the generations who will inherit this world. Every act of business is also an act of stewardship.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── DIRECTOR & CONTACT ── -->
+  <section id="director">
+    <div class="director-block reveal">
+      <span class="section-tag">Leadership & Contact</span>
+      <h2 class="section-title">Meet the<br /><em>Director</em></h2>
+      <p class="section-lead">
+        MOHD Technologies is led by a director whose work bridges community service, health education, and entrepreneurship — rooted in a deep commitment to ethical impact across Tanzania.
+      </p>
+
+      <div class="director-name-card">
+        <div class="director-avatar" style="background:#fff;box-shadow:0 0 0 3px var(--green-deep);">
+          <img class="mohd-logo" alt="MOHD Technologies" style="width:38px;height:38px;object-fit:contain;display:block;" />
+        </div>
+        <div class="director-full-name">Mohd Asaa Khamis</div>
+        <div class="director-role">Director, MOHD Technologies</div>
+        <div class="director-addresses">
+          <div class="director-addr-row">
+            <div class="addr-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <span>P.O. Box 42165, Dar es Salaam, Tanzania</span>
+          </div>
+          <div class="director-addr-row">
+            <div class="addr-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            </div>
+            <span>P.O. Box 275, Zanzibar, Tanzania</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-methods reveal">
+      <a href="tel:+255712537555" class="contact-card">
+        <div class="contact-icon phone">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Phone</div>
+          <div class="contact-value">+255 712 537 555</div>
+        </div>
+      </a>
+
+      <a href="https://wa.me/255712537555" target="_blank" class="contact-card">
+        <div class="contact-icon phone">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M20.52 3.449C12.831-3.984.106 1.407.101 11.893c0 2.096.549 4.14 1.595 5.945L.057 24l6.302-1.654a11.849 11.849 0 005.657 1.439h.005c9.975 0 16.522-10.814 12.499-18.336zM11.968 21.5h-.004c-1.777 0-3.523-.479-5.045-1.383l-.362-.214-3.748.983 1.002-3.651-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.867 9.884z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">+255 742 537 555</div>
+        </div>
+      </a>
+
+      <a href="mailto:director@motech.co.tz" class="contact-card">
+        <div class="contact-icon email">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Official Email</div>
+          <div class="contact-value">director@motech.co.tz</div>
+        </div>
+      </a>
+
+      <a href="mailto:mohd.asaa@gmail.com" class="contact-card">
+        <div class="contact-icon email">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <div>
+          <div class="contact-label">Personal Email</div>
+          <div class="contact-value">mohd.asaa@gmail.com</div>
+        </div>
+      </a>
+
+      <div style="background: var(--green-deep); border-radius: 14px; padding: 1.8rem; margin-top: 0.5rem;">
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.25rem; color:var(--gold-light); line-height:1.55; margin-bottom:0.8rem;">"Let's build a more healthy dynasty together."</p>
+        <p style="font-size:0.8rem; color:rgba(255,255,255,0.5); font-weight:600; letter-spacing:0.08em; text-transform:uppercase;">MOHD Technologies Motto</p>
+      </div>
+
+      <div style="background: var(--white); border-radius: 14px; padding: 1.6rem; border: 1px solid var(--border);">
+        <p style="font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:1rem;">Follow Us on Social Media</p>
+        <div class="social-bar contact-social" style="gap:0.6rem;">
+          <a href="https://www.facebook.com/mohdtechnologies" target="_blank" rel="noopener" class="social-btn fb" style="height:40px;" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="https://www.instagram.com/mohd_technologies" target="_blank" rel="noopener" class="social-btn ig" style="height:40px;" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.youtube.com/@mohd_technologies" target="_blank" rel="noopener" class="social-btn yt" style="height:40px;" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            <span>YouTube</span>
+          </a>
+          <a href="https://www.tiktok.com/@coach_mohd" target="_blank" rel="noopener" class="social-btn tt" style="height:40px;" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            <span>TikTok</span>
+          </a>
+          <a href="https://www.linkedin.com/in/mohdkhamis/" target="_blank" rel="noopener" class="social-btn li" style="height:40px;" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div style="display:flex;align-items:center;gap:0.7rem;margin-bottom:0.6rem;">
+          <div style="width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <img class="mohd-logo" alt="MOHD Technologies Logo" style="width:22px;height:22px;object-fit:contain;display:block;" />
+          </div>
+          <div class="footer-brand-name" style="margin-bottom:0;">MOHD Technologies</div>
+        </div>
+        <div class="footer-brand-sub">More Healthy Dynasty</div>
+        <div class="footer-motto">"Let's build a more healthy dynasty together."</div>
+        <div style="margin-top:1.2rem;">
+          <p class="social-section-label">Follow Us</p>
+          <div class="social-bar footer-social">
+            <a href="https://www.facebook.com/mohdtechnologies" target="_blank" rel="noopener" class="social-btn fb" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/mohd_technologies" target="_blank" rel="noopener" class="social-btn ig" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@mohd_technologies" target="_blank" rel="noopener" class="social-btn yt" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@coach_mohd" target="_blank" rel="noopener" class="social-btn tt" aria-label="TikTok">
+              <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/mohdkhamis/" target="_blank" rel="noopener" class="social-btn li" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-links-col">
+        <h4>Navigate</h4>
+        <a href="#about">About Us</a>
+        <a href="#pillars">Our Pillars</a>
+        <a href="#ecosystem">The Ecosystem</a>
+        <a href="#ethics">Our Values</a>
+        <a href="#director">Contact</a>
+      </div>
+      <div class="footer-links-col">
+        <h4>Verticals</h4>
+        <a href="#pillars">EdTech — Health Education</a>
+        <a href="#pillars">AgriTech — Food Systems</a>
+        <a href="#pillars">FinTech — Business Growth</a>
+      </div>
+      <div class="footer-links-col">
+        <h4>Reach Us</h4>
+        <a href="tel:+255712537555">+255 712 537 555</a>
+        <a href="tel:+255742537555">+255 742 537 555 (WhatsApp)</a>
+        <a href="mailto:director@motech.co.tz">director@motech.co.tz</a>
+        <a href="mailto:mohd.asaa@gmail.com">mohd.asaa@gmail.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 MOHD Technologies. All rights reserved.</span>
+      <span>P.O. Box 42165, Dar es Salaam · P.O. Box 275, Zanzibar, Tanzania</span>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar scroll effect
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Set logo images
+    const LOGO_SRC = "data:image/png;base64,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";
+    document.querySelectorAll('img.mohd-logo').forEach(img => img.src = LOGO_SRC);
+  </script>
+</body>
+</html>
